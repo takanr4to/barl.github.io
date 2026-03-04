@@ -1,0 +1,583 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>bar l | web links</title>
+  <meta name="description" content="bar LABEL open 25:00">
+
+  <style>
+    :root{
+      --bg:#050608;
+      --bg-alt:#101118;
+      --card:#14151f;
+      --accent:#d4af37;
+      --accent-soft:rgba(212,175,55,.16);
+      --border-soft:rgba(255,255,255,.08);
+      --text:#f9fafb;
+      --muted:#9ca3af;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","メイリオ",system-ui,sans-serif;
+      background:radial-gradient(circle at top,#181820 0,#050608 55%);
+      color:var(--text);
+      min-height:100vh;
+      line-height:1.6;
+    }
+
+    .page{max-width:960px;margin:0 auto;padding:16px 12px 120px}
+
+    .card{
+      border-radius:20px;
+      border:1px solid var(--border-soft);
+      background:linear-gradient(145deg,rgba(255,255,255,.02),rgba(0,0,0,.8));
+      backdrop-filter:blur(18px);
+      box-shadow:0 24px 80px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.02);
+    }
+
+    section{margin-bottom:18px}
+    .section-card{padding:16px 16px 20px}
+    .section-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:8px;
+    }
+    .section-title{
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .section-subtitle{font-size:11px;color:var(--muted)}
+
+    .pill{
+      padding:4px 9px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,.28);
+      background:rgba(15,23,42,.7);
+      font-size:11px;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      white-space:nowrap;
+    }
+    .pill-dot{width:7px;height:7px;background:#22c55e;border-radius:999px}
+    .hero-meta{
+      display:flex;
+      gap:6px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      justify-content:center;
+    }
+
+    /* Buttons */
+    .btn{
+      width:100%;
+      border-radius:999px;
+      padding:10px 13px;
+      border:1px solid var(--border-soft);
+      background:rgba(15,23,42,.9);
+      color:var(--text);
+      text-decoration:none;
+      font-size:14px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:8px;
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 40px rgba(0,0,0,.9);
+      border-color:rgba(212,175,55,.5);
+      background:rgba(20,22,35,.96);
+    }
+    .btn:active{
+      transform:translateY(0);
+      box-shadow:0 6px 20px rgba(0,0,0,.7);
+    }
+
+    .btn-icon{
+      width:28px;height:28px;
+      background:rgba(0,0,0,.55);
+      border-radius:999px;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;flex-shrink:0;
+      border:1px solid rgba(255,255,255,.08);
+    }
+    .btn-icon img{width:70%;height:70%;object-fit:contain;display:block}
+
+    .btn-main{flex:1;display:flex;flex-direction:column;text-align:left}
+    .btn-label{font-size:14px}
+    .btn-caption{font-size:11px;color:var(--muted);margin-top:1px}
+    .btn-tag{
+      font-size:11px;border-radius:999px;padding:3px 8px;
+      border:1px solid rgba(148,163,184,.4);
+      color:var(--muted);
+      white-space:nowrap;
+      flex-shrink:0;
+    }
+    .btn-primary{
+      border-color:rgba(212,175,55,.7);
+      background:radial-gradient(circle at top,rgba(212,175,55,.16),rgba(15,23,42,.96));
+    }
+
+    /* CONTACT 3列 */
+    .contact-buttons{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
+      margin:10px 0 4px;
+    }
+    @media (max-width:520px){
+      .contact-buttons{grid-template-columns:1fr; gap:10px;}
+    }
+
+    .contact-btn{
+      padding:14px 10px;
+      border-radius:999px;
+      border:1px solid rgba(212,175,55,.8);
+      background:rgba(8,12,24,.95);
+      color:#f9fafb;
+      text-decoration:none;
+      text-align:center;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      line-height:1.4;
+      transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+      position:relative;
+      overflow:hidden;
+    }
+    .contact-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 30px rgba(0,0,0,.7);
+      border-color:rgba(212,175,55,.95);
+    }
+    .contact-text .top{font-size:14px; display:block}
+    .contact-text .sub{font-size:11px;opacity:.85; display:block}
+
+    /* CONTACT ICON */
+    .contact-icon{
+      width:26px;
+      height:26px;
+      margin:0 auto 6px;
+      position:relative;
+      display:block;
+    }
+    .contact-icon img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+    }
+
+    /* ✅ ここを追加：色は変えずに “軽い光沢だけ” 乗せたい場合 */
+    .contact-icon.gloss::after{
+      content:"";
+      position:absolute;
+      inset:-18%;
+      background:
+        radial-gradient(circle at 30% 18%, rgba(255,255,255,.55), transparent 42%),
+        linear-gradient(to bottom, rgba(255,255,255,.18), transparent 55%);
+      opacity:.45;
+      pointer-events:none;
+      mix-blend-mode:screen;
+    }
+
+    /* HERO */
+    .hero-logo-only{
+      padding:48px 16px 52px;
+      margin-bottom:30px;
+      background:
+        radial-gradient(circle at top center,rgba(212,175,55,.18),rgba(15,15,20,.02) 55%),
+        rgba(0,0,0,.4);
+      border-radius:26px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-logo-only::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle at 50% -20%,rgba(255,255,255,.25),transparent 70%);
+      opacity:.25;
+      pointer-events:none;
+    }
+    .hero-logo-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+    .logo-circle-big{
+      width:110px;height:110px;border-radius:999px;
+      background:
+        radial-gradient(circle at 30% 0%,rgba(255,255,255,.45),transparent 55%),
+        radial-gradient(circle at 70% 100%,rgba(212,175,55,.55),transparent 65%),
+        #050608;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 0 0 1px rgba(255,255,255,.04),0 20px 60px rgba(0,0,0,.9);
+      display:flex;justify-content:center;align-items:center;overflow:hidden;
+    }
+    .logo-img-big{max-width:90%;max-height:78px;display:block}
+
+    .brand-label{
+      font-size:11px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+    }
+    .brand-name{
+      font-size:22px;
+      letter-spacing:.08em;
+      font-weight:600;
+      text-transform:none;
+      margin-top:2px;
+    }
+
+    /* ACCESS */
+    .access-body{font-size:13px;display:grid;gap:8px;margin-top:10px}
+    .access-row{display:flex;gap:18px;margin-bottom:14px;line-height:1.6}
+    .access-label{
+      width:70px;
+      flex-shrink:0;
+      font-size:13.5px;
+      font-weight:600;
+      color:#d1d5db;
+      letter-spacing:.03em;
+    }
+    .access-value{
+      font-size:13.5px;
+      font-weight:400;
+      color:#e5e7eb;
+      letter-spacing:.01em;
+    }
+
+    /* Map button center */
+    .map-btn-center{width:100%;display:flex;justify-content:center;margin:20px 0 30px}
+    .map-btn{max-width:420px;width:90%}
+
+    /* Floor slider */
+    #floor-slider{width:100%;overflow:hidden;padding:20px 0;position:relative}
+    .slider-track{display:flex;gap:12px;animation:slideLeft 20s linear infinite}
+    @keyframes slideLeft{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .slider-track img{
+      height:260px;width:auto;border-radius:12px;object-fit:cover;cursor:pointer;
+      box-shadow:0 0 10px rgba(0,0,0,.4);
+      transition:transform .3s;
+    }
+    .slider-track img:hover{transform:scale(1.05)}
+
+    /* Modal */
+    .modal{
+      display:none;position:fixed;z-index:9999;padding-top:50px;left:0;top:0;
+      width:100%;height:100%;background:rgba(0,0,0,.8);
+    }
+    .modal-content{
+      margin:auto;display:block;max-height:90vh;width:auto;border-radius:12px;
+    }
+    .modal-close{
+      position:absolute;top:30px;right:40px;font-size:40px;color:#fff;cursor:pointer;
+    }
+
+    /* Floating Buttons */
+    .fab-bar{
+      position:fixed;
+      bottom:18px;
+      left:50%;
+      transform:translateX(-50%);
+      display:flex;
+      gap:18px;
+      z-index:100;
+      pointer-events:none;
+    }
+    .fab-btn{
+      pointer-events:auto;
+      width:165px;
+      height:56px;
+      border-radius:50px;
+      padding:0 18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      text-decoration:none;
+      font-size:15px;
+      font-weight:500;
+      color:#fff;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:0 10px 30px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.05);
+      transition:all .2s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+    .fab-btn:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.9)}
+    .fab-btn:active{transform:translateY(0);box-shadow:0 10px 26px rgba(0,0,0,.9)}
+    .fab-line{background:linear-gradient(135deg,#1b7f2b,#1aad37)}
+    .fab-phone{background:linear-gradient(135deg,#b38a2f,#e1c06d)}
+    .fab-icon-img{width:22px;height:22px;object-fit:contain;display:block}
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- HERO -->
+    <header class="hero-logo-only card">
+      <div class="hero-logo-wrap">
+        <div class="logo-circle-big">
+          <img src="img/logo_w.png" alt="bar LABEL roppongi" class="logo-img-big">
+        </div>
+      </div>
+
+      <div style="margin-top:14px; position:relative;">
+        <div class="brand-label">MEMBER'S ONLY</div>
+        <div class="brand-name" style="margin-top:2px; text-transform:none; letter-spacing:0.08em;">
+       bar L -roppongi-
+        </div>
+
+        <div class="hero-meta">
+          <div class="pill"><span class="pill-dot"></span><span>MEMBER'S ONLY</span></div>
+	<div class="pill"><span class="pill-dot"></span><span>open 25:00 - LAST 【土日祝休】</span></div>
+
+  <div style="flex-basis:100%; height:0;"></div>
+
+          <div class="pill"><span>個室完備</span></div>
+          <div class="pill"><span>貸切営業可</span></div>
+	<div class="pill"><span>カード決済可</span></div>
+<div class="pill"><span class="pill-dot"></span><span>インボイス対応</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTACT -->
+    <section class="card" id="contact">
+      <div class="section-card">
+        <div class="section-header">
+          <h2 class="section-title">CONTACT</h2>
+          <div class="section-subtitle">TEL / LINE / INSTAGRAM</div>
+        </div>
+
+        <div class="contact-buttons">
+          <a class="contact-btn" href="tel:08075467298" aria-label="電話する">
+            <!-- ✅ 元色のまま（TEL: img/tel_m.png） -->
+            <span class="contact-icon gloss">
+              <img src="img/tel_m.png" alt="TEL">
+            </span>
+            <span class="contact-text">
+              <span class="top">TEL</span>
+              <span class="sub">080-7546-7298</span>
+            </span>
+          </a>
+
+          <a class="contact-btn" href="https://line.me/ti/p/ClHRrQNAsj" target="_blank" rel="noopener" aria-label="LINEで連絡">
+            <!-- ✅ 元色のまま（LINE: img/line.png） -->
+            <span class="contact-icon gloss">
+              <img src="img/line.png" alt="LINE">
+            </span>
+            <span class="contact-text">
+              <span class="top">LINE</span>
+              <span class="sub">Reservation</span>
+            </span>
+          </a>
+
+          <a class="contact-btn" href="https://www.instagram.com/takanr4to?igsh=NWkxeW1jdDlhMGx6&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagramを開く">
+            <span class="contact-icon">
+              <img src="img/insta.png" alt="Instagram">
+            </span>
+            <span class="contact-text">
+              <span class="top">INSTAGRAM</span>
+              <span class="sub">@takanr4to</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section id="links">
+      <div class="section-card card">
+        <div class="section-header">
+          <h2 class="section-title">LINKS</h2>
+          <div class="section-subtitle">SYSTEM / MENU / ACCESS</div>
+        </div>
+
+        <a class="btn btn-primary" href="#system">
+          <div class="btn-main">
+            <div class="btn-label">SYSTEM</div>
+            <div class="btn-caption">料金システムを見る</div>
+          </div>
+          <div class="btn-tag">IN PAGE</div>
+        </a>
+<!--
+        <a class="btn" href="menu.html">
+          <div class="btn-main">
+            <div class="btn-label">MENU</div>
+            <div class="btn-caption">PDFメニュー（別ページ / 作成予定）</div>
+          </div>
+          <div class="btn-tag">PDF</div>
+        </a>
+-->
+        <a class="btn" href="#access">
+          <div class="btn-main">
+            <div class="btn-label">ACCESS</div>
+            <div class="btn-caption">アクセス情報を見る</div>
+          </div>
+          <div class="btn-tag">IN PAGE</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- FLOOR SLIDER -->
+    <section id="floor-slider">
+      <div class="slider-track" id="sliderTrack"></div>
+    </section>
+
+    <!-- Modal -->
+    <div id="photoModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modalImg" alt="">
+    </div>
+
+    <!-- SYSTEM -->
+    <section id="system">
+      <div class="section-card card">
+        <div class="section-header">
+          <h2 class="section-title">SYSTEM</h2>
+          <div class="section-subtitle">Charge / Service</div>
+        </div>
+
+        <div style="font-size:13.5px; color:#e5e7eb; line-height:1.95;">
+          <p><strong>Charge</strong></p>
+          <p>(2h / 1person .... 5,000yen)</p>
+          <p>*over time (1h / 1person .... 3,000yen)</p>
+
+          <br>
+
+          <p><strong>PrivateRoom Charge</strong></p>
+          <p>(2h / 1room .... 20,000yen)</p>
+          <p>*over time (1h / 1room .... 12,000yen)</p>
+
+          <br>
+
+          <p>Drink .... 1,000yen~</p>
+          <p>Snack .... 1,000yen~</p>
+
+          <br>
+
+          <p><strong>ServiceCharge 10% / TAX 10%</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACCESS -->
+    <section id="access">
+      <div class="section-card card">
+        <div class="section-header">
+          <h2 class="section-title">ACCESS</h2>
+          <div class="section-subtitle">Location / Map</div>
+        </div>
+
+        <div class="access-body">
+          <div class="access-row">
+            <div class="access-label">住所</div>
+            <div class="access-value">
+              東京都港区六本木4丁目<br>
+              <span style="font-size:12px; color:#9ca3af;">※会員制の為、住所はお問い合わせください</span>
+            </div>
+          </div>
+
+          <div class="access-row">
+            <div class="access-label">アクセス</div>
+            <div class="access-value">
+              六本木交差点徒歩1分 / 六本木駅4a・5・6・7 各出口より徒歩1分
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP -->
+    <div class="map-btn-center">
+      <a class="btn map-btn"
+         href="https://maps.app.goo.gl/Wi2ZJqeMP7yDo8bo8"
+         target="_blank"
+         rel="noopener">
+        <div class="btn-icon">
+          <img src="img/map.png" alt="MAP">
+        </div>
+        <div class="btn-main">
+          <div class="btn-label">MAP</div>
+          <div class="btn-caption">ルート案内はこちら</div>
+        </div>
+        <div class="btn-tag">MAP</div>
+      </a>
+    </div>
+
+    <!-- INFORMATION -->
+    <section id="information">
+      <div class="section-card card">
+        <div class="section-header">
+          <h2 class="section-title">INFORMATION</h2>
+          <div class="section-subtitle">Notice / Policy</div>
+        </div>
+
+        <div class="info-list" style="font-size:13px; color:#d1d5db; line-height:1.85;">
+          <p><strong>完全会員制 / 紹介制</strong></p>
+          <p>初めてご来店のお客様は電話かLINEにてお問い合わせください</p>
+
+          <br>
+
+          <p><strong>撮影 / SNS投稿について</strong></p>
+          <p>店内での無断撮影・およびスタッフ・他のお客様の撮影はお断りさせていただいております。</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Floating Buttons（ここは前のままでもOK。必要なら同じアイコンに揃える） -->
+  <div class="fab-bar">
+    <a class="fab-btn fab-line" href="https://line.me/ti/p/ClHRrQNAsj" target="_blank" rel="noopener">
+      <img src="img/line_b.png" class="fab-icon-img" alt="LINE">
+      <span>LINEで予約</span>
+    </a>
+
+    <a class="fab-btn fab-phone" href="tel:08075467298">
+      <img src="img/tel.png" class="fab-icon-img" alt="TEL">
+      <span>電話する</span>
+    </a>
+  </div>
+
+  <script>
+    // slider
+    const sliderTrack = document.getElementById('sliderTrack');
+    let images = [];
+    for (let i = 1; i <= 19; i++) {
+      images.push(`img/floor/shop_pic${String(i).padStart(2, '0')}.jpg`);
+    }
+    images = images.sort(() => Math.random() - 0.5);
+    const doubleImages = images.concat(images);
+
+    doubleImages.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.onclick = () => openModal(src);
+      sliderTrack.appendChild(img);
+    });
+
+    const modal = document.getElementById('photoModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = document.querySelector('.modal-close');
+
+    function openModal(src) {
+      modal.style.display = "block";
+      modalImg.src = src;
+    }
+    closeBtn.onclick = () => { modal.style.display = "none"; };
+    modal.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+  </script>
+</body>
+</html>
